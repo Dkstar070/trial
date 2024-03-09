@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="jenny.css">
+
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>Movies</title>
+    <style>
+        @media screen and (max-width: 650px) {
+
+  .main{
+   display: none;
+  }
+}
+
+    </style>
+    <script>
+        function openMovie(url) {
+            var newWindow = window.open('', '_blank', 'width=600,height=400');
+
+            newWindow.document.body.innerHTML = `
+        <video controls autoplay muted style="width:100%;height:100%" id="fullscreenVideo">
+            <source src="${url}" type="video/mp4">
+        </video>
+        <button onclick="toggleFullScreen('fullscreenVideo')">Toggle Full Screen</button>
+    `;
+
+            function toggleFullScreen(elementId) {
+                var videoElement = newWindow.document.getElementById(elementId);
+
+                if (videoElement.requestFullscreen) {
+                    if (!document.fullscreenElement) {
+                        videoElement.requestFullscreen();
+                    } else {
+                        document.exitFullscreen();
+                    }
+                } else if (videoElement.mozRequestFullScreen) {
+                    if (!document.mozFullScreenElement) {
+                        videoElement.mozRequestFullScreen();
+                    } else {
+                        document.mozCancelFullScreen();
+                    }
+                } else if (videoElement.webkitRequestFullscreen) {
+                    if (!document.webkitFullscreenElement) {
+                        videoElement.webkitRequestFullscreen();
+                    } else {
+                        document.webkitExitFullscreen();
+                    }
+                } else if (videoElement.msRequestFullscreen) {
+                    if (!document.msFullscreenElement) {
+                        videoElement.msRequestFullscreen();
+                    } else {
+                        document.msExitFullscreen();
+                    }
+                }
+            }
+        }
+
+    </script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <section class="main" title="voice Assistant">
+        <div class="input">
+            <button class="talk"><i class="fas fa-microphone-alt"></i></button>
+            <h1 class="content"></h1>
+        </div>
+    </section>
+  
+    <section class="section1 section">
+        <h4>South Action </h4>
+        
+        <i class="bi bi-chevron-left"></i>
+        <i class="bi bi-chevron-right"></i>
+        <div class="cards">
+            <a href="" class="card" id="jur" onclick="openMovie('777_Charlie.mp4'); return false;">
+                <img src="777_Charlie_v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="777-Charlie h.jpg" alt="">
+                    <div class="cont">
+                        <h4>777-Charlie </h4>
+                        <div class="sub">
+                            <p>Animal love, 2016</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Salaar.mp4'); return false;">
+                <img src="salaar v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="salaar h.jpg" alt="">
+                    <div class="cont">
+                        <h4>salaar </h4>
+                        <div class="sub">
+                            <p>Action,2021</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('KGF_Chapter_2_.mp4'); return false;">
+                <img src="KGF chapter2 v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="KGF2 h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Kgf Chapter 2</h4>
+                        <div class="sub">
+                            <p>Action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.9</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('RRR_Official.mp4'); return false;">
+                <img src="RRR v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="RRR h.jpg" alt="">
+                    <div class="cont">
+                        <h4>RRR</h4>
+                        <div class="sub">
+                            <p>Action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.9</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('#Pushpa_-_The_Rise.mp4'); return false;">
+                <img src="pushpa v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="pushpa h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Pushpa The Rise</h4>
+                        <div class="sub">
+                            <p>action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.3</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Vikram_.mp4'); return false;">
+                <img src="vikram v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="vikram h.webp" alt="">
+                    <div class="cont">
+                        <h4>vikram</h4>
+                        <div class="sub">
+                            <p>Action, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Baahubali_2_.mp4'); return false;">
+                <img src="bahubali 2 v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="bahubali 2 h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Bahubali 2</h4>
+                        <div class="sub">
+                            <p>Action, 2019</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.9</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur"
+                onclick="openMovie('Kantara.mp4'); return false;">
+                <img src="kantara v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="kantara h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Kantara</h4>
+                        <div class="sub">
+                            <p>religious, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 7.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Karthikeya_2.mp4'); return false;">
+                <img src="karthikeya-2 v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="karthikey-2 h.jpg" alt="">
+                    <div class="cont">
+                        <h4>karthikey 2</h4>
+                        <div class="sub">
+                            <p>history, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('KGF_.mp4'); return false;">
+                <img src="kgf v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="kgf h.jpg" alt="">
+                    <div class="cont">
+                        <h4>KGF <h4>
+                        <div class="sub">
+                            <p>Action, 2018</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Scam_1992.mp4'); return false;">
+                <img src="1992 v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="1992 scam h.jpg" alt="">
+                    <div class="cont">
+                        <h4>The Boys</h4>
+                        <div class="sub">
+                            <p>Action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('DJ.mp4'); return false;">
+                <img src="DJ V.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="DJ h.jpg" alt="">
+                    <div class="cont">
+                        <h4>DJ</h4>
+                        <div class="sub">
+                            <p>Action, 2015</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="section2 section1">
+        <h4>Bollywood </h4>
+        
+        <i class="bi bi-chevron-left lef"></i>
+        <i class="bi bi-chevron-right rig"></i>
+        <div class="cards card1">
+            <a href="" class="card" id="jur" onclick="openMovie('Fighter.mp4'); return false;">
+                <img src="fighter v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="fighter-h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Fighter </h4>
+                        <div class="sub">
+                            <p>Action, 2024</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('ANIMAL_.mp4'); return false;">
+                <img src="animal v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="animal h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Animal</h4>
+                        <div class="sub">
+                            <p>Action,2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Dunki.mp4'); return false;">
+                <img src="Dunki_ v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="dunki h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Dunki</h4>
+                        <div class="sub">
+                            <p>study, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 6.9</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Gadar2.mp4'); return false;">
+                <img src="gadar 2 v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="gadar 2 h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Gadar2</h4>
+                        <div class="sub">
+                            <p>Action, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Golmaal_Again.mp4'); return false;">
+                <img src="golmaal v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="golmaal h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Golmaal Again</h4>
+                        <div class="sub">
+                            <p>Comedy, 2020</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.3</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Wakanda_Forever.mp4'); return false;">
+                <img src="Hera feri v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="HERAFERI  h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Hera feri </h4>
+                        <div class="sub">
+                            <p>Comedy, 2013</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.9</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Jawan.mp4'); return false;">
+                <img src="jawan v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="jawan h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Jawan</h4>
+                        <div class="sub">
+                            <p>Action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 7.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur"
+                onclick="openMovie('Tu_Jhoothi_Main_makkar.mp4'); return false;">
+                <img src="juthhi v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="juthhi h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Tu juthhi me makkar</h4>
+                        <div class="sub">
+                            <p>romentic, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Total_Dhamaal.mp4'); return false;">
+                <img src="total dhamal v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="total dhamaal h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Total dhamaal</h4>
+                        <div class="sub">
+                            <p>Comedy Action, 2020</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Tiger_3.mp4'); return false;">
+                <img src="tiger 3 v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="tiger 3 h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Tiger 3<h4>
+                        <div class="sub">
+                            <p>Action, 2024</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Laal_Singh chadda.mp4'); return false;">
+                <img src="lal Singh chadda v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="lal Singh chadda h.png" alt="">
+                    <div class="cont">
+                        <h4>Laal Singh chadda</h4>
+                        <div class="sub">
+                            <p>Action, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 7.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Bhuj.mp4'); return false;">
+                <img src="bhuj v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="bhuj h.jpg" alt="">
+                    <div class="cont">
+                        <h4>BHUJ</h4>
+                        <div class="sub">
+                            <p>Action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 7.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Pathaan.mp4'); return false;">
+                <img src="pathan v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="-pathaan h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Pathaan</h4>
+                        <div class="sub">
+                            <p>Action, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('BRAHMĀSTRA.mp44'); return false;">
+                <img src="brahmastra v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="bramhastra h.jpg" alt="">
+                    <div class="cont">
+                        <h4>The Boys</h4>
+                        <div class="sub">
+                            <p>Action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="section3 section1">
+        <h4>Hollywood </h4>
+        
+        <i class="bi bi-chevron-left lef1"></i>
+        <i class="bi bi-chevron-right rig1"></i>
+        <div class="cards card2">
+            <a href="" class="card" id="jur" onclick="openMovie('Wakanda_Forever.mp4'); return false;">
+                <img src="wakanda v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="wakanda h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Wakanda Forever </h4>
+                        <div class="sub">
+                            <p>Action, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 7.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('UNCHARTED.mp4'); return false;">
+                <img src="uncharted.webp" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="uncharted1.jpg" alt="">
+                    <div class="cont">
+                        <h4>UNCHARTED</h4>
+                        <div class="sub">
+                            <p>Action,2021</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.0</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Doctor_Strange_in_the_Multiverse_of_Madness.mp4'); return false;">
+                <img src="dr strange v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="dr stange h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Dr Strange Multiverse of Madness</h4>
+                        <div class="sub">
+                            <p>Action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.9</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Endgame.mp4'); return false;">
+                <img src="end game v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="end game h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Avengers Endgame</h4>
+                        <div class="sub">
+                            <p>Action, 2019</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('SPIDER-MAN__NO_WAY_HOME.mp4'); return false;">
+                <img src="spiderman.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="spiderman1.jpg" alt="">
+                    <div class="cont">
+                        <h4>SPIDER-MAN__NO_WAY_HOME</h4>
+                        <div class="sub">
+                            <p>action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.3</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Eternals.mp4'); return false;">
+                <img src="etarnal v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="etarnal h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Eternals</h4>
+                        <div class="sub">
+                            <p>Action, 2021</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 6.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('infinity war.mp4'); return false;">
+                <img src="infinity v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="I finity h.png" alt="">
+                    <div class="cont">
+                        <h4>Avengers infinity war</h4>
+                        <div class="sub">
+                            <p>Action, 2017</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.0</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur"
+                onclick="openMovie('jurasic world.mp4'); return false;">
+                <img src="jurassic world.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="jurassic world1.jpg" alt="">
+                    <div class="cont">
+                        <h4>jurasic world </h4>
+                        <div class="sub">
+                            <p>Action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('SPIDER-MAN__NO_WAY_HOME.mp4'); return false;">
+                <img src="spiderman.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="spiderman1.jpg" alt="">
+                    <div class="cont">
+                        <h4>SPIDERMAN NO WAY HOME</h4>
+                        <div class="sub">
+                            <p>Action, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.1</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('_Secret_Invasion.mp4'); return false;">
+                <img src="secrate invinsion v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="secrate invasin h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Secret Invasion<h4>
+                        <div class="sub">
+                            <p>Action, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+    </section>
+    <script src="app.js"></script>
+    <script src="jenny.js"></script>
+</body>
+</html>

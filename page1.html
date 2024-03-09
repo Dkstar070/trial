@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>MOVIE WEB</title>
+    <style>
+      @media screen and (max-width: 650px) {
+    
+  .main{
+   display: none;
+  }
+}
+
+    </style>
+    <script>
+        function openMovie(url) {
+            var newWindow = window.open('', '_blank', 'width=600,height=400');
+
+            newWindow.document.body.innerHTML = `
+        <video controls autoplay muted style="width:100%;height:100%" id="fullscreenVideo">
+            <source src="${url}" type="video/mp4">
+        </video>
+        <button onclick="toggleFullScreen('fullscreenVideo')">Toggle Full Screen</button>
+    `;
+
+            function toggleFullScreen(elementId) {
+                var videoElement = newWindow.document.getElementById(elementId);
+
+                if (videoElement.requestFullscreen) {
+                    if (!document.fullscreenElement) {
+                        videoElement.requestFullscreen();
+                    } else {
+                        document.exitFullscreen();
+                    }
+                } else if (videoElement.mozRequestFullScreen) {
+                    if (!document.mozFullScreenElement) {
+                        videoElement.mozRequestFullScreen();
+                    } else {
+                        document.mozCancelFullScreen();
+                    }
+                } else if (videoElement.webkitRequestFullscreen) {
+                    if (!document.webkitFullscreenElement) {
+                        videoElement.webkitRequestFullscreen();
+                    } else {
+                        document.webkitExitFullscreen();
+                    }
+                } else if (videoElement.msRequestFullscreen) {
+                    if (!document.msFullscreenElement) {
+                        videoElement.msRequestFullscreen();
+                    } else {
+                        document.msExitFullscreen();
+                    }
+                }
+            }
+        }
+
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- https://dkstar070.github.io/movieweb/ -->
+    <section class="main" title="voice Assistant">
+        <div class="input">
+            <button class="talk"><i class="fas fa-microphone-alt"></i></button>
+            <h1 class="content"></h1>
+        </div>
+    </section>
+    <script src="jenny.js"></script>
+    <header>
+        <video class="video" src="1080back video.mp4" autoplay muted></video>
+        <video class="video2" src="324back video.mp4" autoplay muted></video>
+        <nav>
+            <div class="logo_ul">
+                <img src="logo.png" alt="">
+                <ul>
+                    <li>
+                        <a href="page1.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" id="about">about</a>
+                    </li>
+                    <li>
+                        <a href="#" id="contect">contect</a>
+                    </li>
+                    <li>
+                        <a href="#" id="query">query form</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="search_user">
+                <input type="text" id="searchInput" oninput="searchMovies()" placeholder="Search for movies">
+                <ul class="d1" id="searchresult">
+                  
+                </ul>
+            </div>
+        </nav>
+        <div class="content">
+            <h1 id="title">SPIDER MAN </h1>
+            <h1 id=" t">NO WAY HOME </h1>
+
+            <p>a man who has powers of spider who can save earth from monstars and scraifies his identity  </p>
+            <div class="details">
+                <h6>A Netflix Original Film</h6>
+                <h5 id="gen">Thriller</h5>
+                <h4 id="date">2021</h4>
+                <h3 id="rate"><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+            </div>
+            <div class="btns">
+
+                <a href="movies.html" id="mov">MOVIES </a>
+                <a href="webseries.html" id="web">WEB SERIES</a>
+                <a href="download.html" id="tv">download</a>
+                <a href="#" id="download_main"> <i class="bi bi-cloud-arrow-down-fill"></i></a>
+            </div>
+        </div>
+        <section>
+            <h4>Popular</h4>
+            <i class="bi bi-chevron-left"></i>
+            <i class="bi bi-chevron-right"></i>
+            <div class="cards">
+                <a href="" class="card" id="jur" onclick="openMovie('Fighter.mp4'); return false;">
+                    <img src="fighter v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="fighter-h.jpg" alt="">
+                        <div class="cont">
+                            <h4>Fighter </h4>
+                            <div class="sub">
+                                <p>Action, 2024</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('Money_Heist.mp4'); return false;">
+                    <img src="money heist.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="money heist1.jpg" alt="">
+                        <div class="cont">
+                            <h4>777-Charlie</h4>
+                            <div class="sub">
+                                <p>money Heist,2021</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('KGF_Chapter_2_.mp4'); return false;">
+                    <img src="KGF chapter2 v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="KGF2 h.jpg" alt="">
+                        <div class="cont">
+                            <h4>Kgf Chapter 2</h4>
+                            <div class="sub">
+                                <p>Action, 2022</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.9</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('_Secret_Invasion.mp4'); return false;">
+                    <img src="secrate invinsion v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="secrate invasin h.jpg" alt="">
+                        <div class="cont">
+                            <h4>Secerate invasion</h4>
+                            <div class="sub">
+                                <p>Action, 2023</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 6.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('SPIDER-MAN__NO_WAY_HOME.mp4'); return false;">
+                    <img src="spiderman.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="spiderman1.jpg" alt="">
+                        <div class="cont">
+                            <h4>SPIDER-MAN__NO_WAY_HOME</h4>
+                            <div class="sub">
+                                <p>action, 2022</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.3</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('Wakanda_Forever.mp4'); return false;">
+                    <img src="wakanda v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="wakanda h.jpg" alt="">
+                        <div class="cont">
+                            <h4>Wakanda forever</h4>
+                            <div class="sub">
+                                <p>Action, 2023</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('Pathaan.mp4'); return false;">
+                    <img src="pathan v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="-pathaan h.jpg" alt="">
+                        <div class="cont">
+                            <h4>Pathan</h4>
+                            <div class="sub">
+                                <p>Action, 2022</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 5.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur"
+                    onclick="openMovie('Doctor_Strange_in_the_Multiverse_of_Madness.mp4'); return false;">
+                    <img src="dr strange v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="dr stange h.jpg" alt="">
+                        <div class="cont">
+                            <h4>Dr strange Doctor_Strange_in_the_Multiverse_of_Madness</h4>
+                            <div class="sub">
+                                <p>Action, 2023</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('FARZI_.mp4'); return false;">
+                    <img src="Farzi v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="Farzi h.jpg" alt="">
+                        <div class="cont">
+                            <h4>FARZI</h4>
+                            <div class="sub">
+                                <p>normal, 2023</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 7.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('ANIMAL_.mp4'); return false;">
+                    <img src="animal v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="animal h.jpg" alt="">
+                        <div class="cont">
+                            <h4>animal<h4>
+                            <div class="sub">
+                                <p>Action, 2023</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('jurasic world.mp4'); return false;">
+                    <img src="jurassic world.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="jurassic world1.jpg" alt="">
+                        <div class="cont">
+                            <h4>The Boys</h4>
+                            <div class="sub">
+                                <p>Action, 2022</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('777_Charlie.mp4'); return false;">
+                    <img src="777_Charlie_v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="777-Charlie h.jpg" alt="">
+                        <div class="cont">
+                            <h4>777 Charlie</h4>
+                            <div class="sub">
+                                <p>Animal love, 2016</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('Endgame.mp4'); return false;">
+                    <img src="end game v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="end game h.jpg" alt="">
+                        <div class="cont">
+                            <h4>Avengers End game</h4>
+                            <div class="sub">
+                                <p>Action, 2020</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="card" id="jur" onclick="openMovie('Dunki.mp4'); return false;">
+                    <img src="Dunki_ v.jpg" alt="" class="poster">
+                    <div class="rest_card">
+                        <img src="dunki h.jpg" alt="">
+                        <div class="cont">
+                            <h4>The Boys</h4>
+                            <div class="sub">
+                                <p>Action, 2022</p>
+                                <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </header>
+    <br>
+    <script src="app.js"></script>
+    <script src="your_script.js"></script>
+    <script>
+        // function startSpeechRecognition() {
+        //     const searchInput = document.getElementById('searchInput');
+
+        //     // Check if the browser supports the SpeechRecognition API
+        //     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+        //         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        //         const recognition = new SpeechRecognition();
+
+        //         recognition.onstart = () => {
+        //             console.log('Speech recognition started');
+        //         };
+
+        //         recognition.onresult = (event) => {
+        //             const result = event.results[0][0].transcript;
+        //             searchInput.value = result;
+        //             searchMovies(); // Call your search function here
+        //         };
+
+        //         recognition.onend = () => {
+        //             console.log('Speech recognition ended');
+        //         };
+
+        //         recognition.onerror = (event) => {
+        //             console.error('Speech recognition error:', event.error);
+        //         };
+
+        //         recognition.start();
+        //     } else {
+        //         alert('Speech recognition is not supported in this browser.');
+        //     }
+        // }
+        // // JavaScript function to play movie in a new window
+        // function playMovie(streamingLink) {
+        //     // Open a new window with the streaming link
+        //     window.open(streamingLink, '_blank', 'width=800,height=600');
+        // }
+    </script>
+    
+</body>
+
+</html>
