@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="jenny.css">
+    <style>
+        header .video {
+    position: absolute;
+    width: 120%;
+    height: 190%;
+    top: -47%;
+    z-index: -1;
+    transition: all .1s;
+}
+ 
+body{
+   background-color: #000;
+ }
+
+ .section1 {
+    /* margin-top: 10%; */
+
+    z-index: 5;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    padding: 0px 50px;
+    color: #fff;
+    bottom: 20%;
+}
+.section h4{
+  color: #fff;
+  font-size: 25px;
+}
+ 
+.section1 .cards {
+    position: relative;
+    width: 100%;
+    height:300px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.section1 .cards::-webkit-scrollbar {
+    display: none;
+}
+
+.section1 .cards .card {
+    position: relative;
+    min-width:180px;
+    height: 250px;
+    /* border: 1px solid #fff; */
+    border-radius: 8px;
+    margin-right: 10px;
+    background: #000;
+    transition: .3s linear;
+}
+
+.section1 .cards .card .poster {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    position: relative;
+}
+
+.section1 .cards .card:hover {
+    min-width: 400px;
+    overflow: hidden;
+}
+
+.section1 .cards .card .rest_card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    left: 0;
+    top: 0;
+    z-index: 999999;
+    opacity: 0;
+    transition: 1s linear;
+}
+
+.section1 .cards .card .rest_card img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.section1 .cards .card .rest_card::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #000);
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.section1 .cards .card .rest_card .cont {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 0;
+    color: #fff;
+    padding: 0px 20px;
+}
+
+.section1 .cards .card .rest_card .cont .sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section1 .cards .card .rest_card .cont .sub p {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(255, 255, 255, .7);
+}
+
+.section1 .cards .card .rest_card .cont .sub h3 {
+    color: #fff;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.section1 .cards .card .rest_card .cont .sub h3 span {
+    background: yellow;
+    color: #000;
+    padding: 0px 3px;
+    margin: 0px 5px 0px 10px;
+    font-weight: 500;
+    border-radius: 2px;
+}
+
+.section1 .cards .card .rest_card .cont .sub h3 i {
+    margin-right: 3px;
+}
+
+.section1 .cards .card:hover .rest_card {
+    opacity: 1;
+}
+
+.section1 .bi-chevron-left,
+.bi-chevron-right {
+    position: absolute;
+    top: 55%;
+    left: 6%;
+    width: 50px;
+    height: 50px;
+    background: rgb(255, 255, 255, .3);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    transition: .3s linear;
+    z-index: 11;
+    opacity: 0;
+}
+
+.section1 .bi-chevron-right {
+    left: unset;
+}
+
+.section1:hover .bi-chevron-right {
+    right: 10vw;
+    opacity: 1;
+}
+
+.section1:hover .bi-chevron-left {
+    opacity: 1;
+}
+@media screen and (max-width: 800px) {
+    
+    .section1 {
+       padding: 0px 10px;
+   }
+}
+@media screen and (max-width: 650px) {
+    
+     .section1 {
+        padding: 0px 10px;
+
+    }
+   .main{
+    display: none;
+   }
+}
+
+    </style>
+     <script>
+        function openMovie(url) {
+            var newWindow = window.open('', '_blank', 'width=600,height=400');
+
+            newWindow.document.body.innerHTML = `
+        <video controls autoplay muted style="width:100%;height:100%" id="fullscreenVideo">
+            <source src="${url}" type="video/mp4">
+        </video>
+        <button onclick="toggleFullScreen('fullscreenVideo')">Toggle Full Screen</button>
+    `;
+
+            function toggleFullScreen(elementId) {
+                var videoElement = newWindow.document.getElementById(elementId);
+
+                if (videoElement.requestFullscreen) {
+                    if (!document.fullscreenElement) {
+                        videoElement.requestFullscreen();
+                    } else {
+                        document.exitFullscreen();
+                    }
+                } else if (videoElement.mozRequestFullScreen) {
+                    if (!document.mozFullScreenElement) {
+                        videoElement.mozRequestFullScreen();
+                    } else {
+                        document.mozCancelFullScreen();
+                    }
+                } else if (videoElement.webkitRequestFullscreen) {
+                    if (!document.webkitFullscreenElement) {
+                        videoElement.webkitRequestFullscreen();
+                    } else {
+                        document.webkitExitFullscreen();
+                    }
+                } else if (videoElement.msRequestFullscreen) {
+                    if (!document.msFullscreenElement) {
+                        videoElement.msRequestFullscreen();
+                    } else {
+                        document.msExitFullscreen();
+                    }
+                }
+            }
+        }
+   
+    </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+    <section class="main" title="voice Assistant">
+        <div class="input">
+            <button class="talk"><i class="fas fa-microphone-alt"></i></button>
+            <h1 class="content"></h1>
+        </div>
+    </section>
+    <script src="jenny.js"></script>
+    <header>
+        <video class="video" src="Special_Ops.mp4" autoplay muted></video>
+       
+        </header>
+    <section class="section1 section">
+        <!-- <h4>webseries</h4> -->
+        <i class="bi bi-chevron-left"></i>
+        <i class="bi bi-chevron-right"></i>
+        <div class="cards">
+            <a href="" class="card" id="jur" onclick="openMovie('Asur.mp4'); return false;">
+                <img src="asur 2 v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="asur 2 h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Asur </h4>
+                        <div class="sub">
+                            <p>hindi webesries</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('College_Romance.mp4'); return false;">
+                <img src="College_Romance_Season3 v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="College-Romance-Season-3 h.webp" alt="">
+                    <div class="cont">
+                        <h4>College-Romance-Season-3</h4>
+                        <div class="sub">
+                            <p>romentic webseries</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Mirzapur.mp4'); return false;">
+                <img src="mirzapur 2 v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="mirzapur-season-2 h.jpg" alt="">
+                    <div class="cont">
+                        <h4>mirzapur season 2</h4>
+                        <div class="sub">
+                            <p>Action webesries</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.9</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Money_Heist.mp4'); return false;">
+                <img src="money heist.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="money heist1.jpg" alt="">
+                    <div class="cont">
+                        <h4>Money Heist</h4>
+                        <div class="sub">
+                            <p>english webseries</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 6.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('Kota fectory.mp4'); return false;">
+                <img src="kota factory.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="kota factory1.webp" alt="">
+                    <div class="cont">
+                        <h4>kota factory</h4>
+                        <div class="sub">
+                            <p>indian webseries</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.3</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('FARZI_.mp4'); return false;">
+                <img src="Farzi v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="Farzi h.jpg" alt="">
+                    <div class="cont">
+                        <h4>FARZI</h4>
+                        <div class="sub">
+                            <p>webseries</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur" onclick="openMovie('The_Family_Man_–.mp4'); return false;">
+                <img src="family man v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="family man h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Pathan</h4>
+                        <div class="sub">
+                            <p>Action, 2022</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 5.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="card" id="jur"
+                onclick="openMovie('Wednesday_Addams.mp4'); return false;">
+                <img src="Wednesday v.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="Wednesday h.jpg" alt="">
+                    <div class="cont">
+                        <h4>Wednesday Addams</h4>
+                        <div class="sub">
+                            <p>english webseries</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 9.6</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+           
+        </div>
+    </section>
+   
+    <script src="app.js"></script>
+</body>
+</html>
