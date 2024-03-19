@@ -95,12 +95,6 @@
                 </ul>
             </div>
 
-            <div class="search_user">
-                <input type="text" id="searchInput" oninput="searchMovies()" placeholder="Search for movies">
-                <ul class="d1" id="searchresult">
-                  
-                </ul>
-            </div>
         </nav>
         <div class="content">
             <h1 id="title">SPIDER MAN </h1>
@@ -117,8 +111,8 @@
 
                 <a href="movies.html" id="mov">MOVIES </a>
                 <a href="webseries.html" id="web">WEB SERIES</a>
-                <a href="download.html" id="tv">download <i class="bi bi-cloud-arrow-down-fill"></i></a>
-              
+                <a href="third.html" id="tv">search section <i class="bi bi-cloud-arrow-down-fill"></i></a>
+               
             </div>
         </div>
         <section>
@@ -315,8 +309,67 @@
     <br>
     <script src="app.js"></script>
     <script src="your_script.js"></script>
-  
-    
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        
+        const movies = [
+          { title: 'spider man ', image: 'spiderman1.jpg', video: 'SPIDER-MAN__NO_WAY_HOME.mp4' },
+          { title: 'money heist', image: 'money heist.jpg', video: 'Money_Heist.mp4' },
+          { title: 'RRR', image: 'RRR v.jpg', video: 'RRR_Official.mp4' },
+        ];
+        
+        function displayMovies(searchTerm) {
+          searchResults.innerHTML = '';
+        
+          movies.forEach(movie => {
+            if (movie.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+              const movieElement = document.createElement('div');
+              movieElement.classList.add('movie');
+              movieElement.innerHTML = `
+                <img src="${movie.image}" alt="${movie.title}">
+                <p>${movie.title}</p>
+              `;
+              movieElement.addEventListener('click', () => playMovie(movie.video));
+              searchResults.appendChild(movieElement);
+            }
+          });
+        
+          // Show the movie list
+          searchResults.style.display = 'block';
+        }
+        
+        function playMovie(videoUrl) {
+          const newWindow = window.open('', '_blank');
+          
+          const videoPlayer = document.createElement('video');
+          videoPlayer.src = videoUrl;
+          videoPlayer.controls = true;
+          videoPlayer.autoplay = true;
+          videoPlayer.style.width = '100%';
+          videoPlayer.style.height = 'auto';
+        
+          newWindow.document.body.appendChild(videoPlayer);
+        
+          // Hide the movie list after clicking a movie
+          searchResults.style.display = 'none';
+        }
+        
+        // Event listener to hide the movie list when clicking anywhere on the page
+        document.body.addEventListener('click', function(event) {
+          if (event.target !== searchInput && event.target !== searchResults) {
+            searchResults.style.display = 'none';
+          }
+        });
+        
+        searchInput.addEventListener('input', () => displayMovies(searchInput.value));
+        document.body.addEventListener("click", () => {
+            searchResults.innerHTML = "";
+                // Hide the movie list
+            });
+          </script>
 </body>
 
 </html>
+
+                                
