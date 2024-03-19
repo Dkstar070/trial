@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Search</title>
+<style>
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+  }
+  body{
+    background-color: rgb(2, 18, 32);
+  }
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: white;
+}
+
+.movie-card {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 200px;
+  text-align: center;
+}
+
+.movie-image {
+  width: 150px;
+  height: 180px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.search-container {
+  margin-top: 15PX;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  padding: 10px;
+  width:60vw;
+  border-radius: 5px;
+  background-color: #000000;
+  color: #fff;
+}
+.search-container input::placeholder {
+    color: #fff;
+    font-size: 15PX;
+}
+.watch-now {
+  display: block;
+  margin-top: 10px; /* Adjust margin as needed */
+  text-decoration: none;
+  color: #fff; /* Change color as needed */
+  background-color: #007bff; /* Change background color as needed */
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.watch-now:hover {
+  background-color: #0056b3; /* Change hover background color as needed */
+}
+</style>
+</head>
+<body>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search movies & webseries...">
+  </div>
+  <div id="moviesContainer" class="movies-container">
+    <!-- Movie cards will be dynamically added here -->
+  </div>
+
+  <script >
+   const moviesContainer = document.getElementById('moviesContainer');
+const searchInput = document.getElementById('searchInput');
+
+const movies = [
+  { name: '777-Charlie', imageUrl: '777_Charlie_v.jpg', videoLink: '777_Charlie.mp4' },
+  { name: 'Scam 1992', imageUrl: '1992 v.jpg', videoLink: 'Scam_1992.mp4' },
+  { name: 'animal', imageUrl: 'animal v.jpg', videoLink: 'ANIMAL_.mp4' },
+  { name: 'asur 2', imageUrl: 'asur 2 v.jpg', videoLink: 'Asur.mp4' },
+  { name: 'Doctor_Strange', imageUrl: 'dr strange v.jpg', videoLink: 'Doctor_Strange_in_the_Multiverse_of_Madness.mp4' },
+  { name: 'Avengers Endgame', imageUrl: 'end game v.jpg', videoLink: 'Endgame.mp4' },
+  { name: 'Eternals', imageUrl: 'etarnal v.jpg', videoLink: 'Eternals.mp4' },
+  { name: 'fighter', imageUrl: 'fighter v.jpg', videoLink: 'Fighter.mp4' },
+  { name: 'Jawan', imageUrl: 'jawan v.jpg', videoLink: 'Jawan.mp4' },
+  { name: 'Avengers infinity war', imageUrl: 'infinity v.jpg', videoLink: 'infinity war.mp4' },
+  { name: 'kantara', imageUrl: 'kantara v.jpg', videoLink: 'Kantara.mp4' },
+  { name: 'jurassic world', imageUrl: 'jurassic world.jpg', videoLink: 'jurasic world.mp4' },
+  { name: 'KGF chapter', imageUrl: 'KGF chapter2 v.jpg', videoLink: 'KGF_Chapter_2_.mp4' },
+  { name: 'kota factory', imageUrl: 'kota factory.jpg', videoLink: 'Kota fectory.mp4' },
+  { name: 'lal Singh chadda', imageUrl: 'lal Singh chadda v.jpg', videoLink: 'Laal_Singh chadda.mp4' },
+  { name: 'loki', imageUrl: 'loki v.jpg', videoLink: 'Loki.mp4' },
+  { name: 'mirzapur 2', imageUrl: 'mirzapur 2 v.jpg', videoLink: 'Mirzapur.mp4' },
+  { name: 'pushpa the rais', imageUrl: 'pushpa v.jpg', videoLink: '#Pushpa_-_The_Rise.mp4' },
+  { name: 'Wednesday', imageUrl: 'Wednesday v.jpg', videoLink: 'Wednesday_Addams.mp4' },
+  { name: 'war', imageUrl: 'war v.jpg', videoLink: 'WAR___Trailer.mp4' },
+  { name: 'Wakanda Forever', imageUrl: 'wakanda v.jpg', videoLink: 'Wakanda_Forever.mp4' },
+  { name: 'vikram', imageUrl: 'vikram v.jpg', videoLink: 'Vikram_.mp4' },
+  { name: 'uncharted', imageUrl: 'uncharted.webp', videoLink: 'UNCHARTED.mp4' },
+  { name: 'total dhamal', imageUrl: 'total dhamal v.jpg', videoLink: 'Total_Dhamaal.mp4' },
+  { name: 'sultan', imageUrl: 'sultan v.jpg', videoLink: 'Sultan.mp4' },
+  { name: 'special ops', imageUrl: 'special ops v.jpg', videoLink: 'Special_Ops.mp4' },
+  { name: 'tiger 3', imageUrl: 'tiger 3 v.jpg', videoLink: 'Tiger_3.mp4' },
+  { name: 'shivay', imageUrl: 'shivay v.jpg', videoLink: 'Shivaay.mp4' },
+  { name: 'secrate invinsion', imageUrl: 'secrate invinsion v.jpg', videoLink: '_Secret_Invasion.mp4' },
+  { name: 'karthikeya-2', imageUrl: 'karthikeya-2 v.jpg', videoLink: 'Karthikeya_2.mp4' },
+
+  // Add more movies as needed
+];
+
+// Function to display movies in the container
+function displayMovies(movieList) {
+  moviesContainer.innerHTML = '';
+  movieList.forEach(movie => {
+    const movieCard = document.createElement('div');
+    movieCard.classList.add('movie-card');
+
+    const image = document.createElement('img');
+    image.classList.add('movie-image');
+    image.src = movie.imageUrl;
+    movieCard.appendChild(image);
+
+    const name = document.createElement('p');
+    name.textContent = movie.name;
+    movieCard.appendChild(name);
+
+    const link = document.createElement('a');
+link.textContent = 'Watch Now';
+link.href = movie.videoLink;
+link.classList.add('watch-now'); // Add this line to add a class to the link
+movieCard.appendChild(link);
+
+    moviesContainer.appendChild(movieCard);
+  });
+}
+
+// Function to open video in a new window
+function openVideoWindow(videoLink) {
+  const width = 800;
+  const height = 600;
+  const left = (screen.width - width) / 2;
+  const top = (screen.height - height) / 2;
+  const options = `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes,status=yes`;
+  window.open(videoLink, 'Video Player', options);
+}
+
+// Initial display of movies
+displayMovies(movies);
+
+// Function to filter movies based on search input
+function filterMovies() {
+  const searchText = searchInput.value.toLowerCase();
+  const filteredMovies = movies.filter(movie => movie.name.toLowerCase().includes(searchText));
+  displayMovies(filteredMovies);
+}
+
+// Event listener for search input
+searchInput.addEventListener('input', filterMovies);
+
+  </script>
+</body>
+</html>
